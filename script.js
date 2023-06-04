@@ -1,8 +1,8 @@
 $(function() {
-  // Retrieve the current hour using Day.js
+  // Fetches the local time for of the subjects computer an order to keep the schdule up to date. 
   var currentHour = dayjs().format('H');
 
-  // Add event listener to save button
+  // eventListener for the save button, using the time-block ID.
   $('.saveBtn').on('click', function() {
     var timeBlockId = $(this).parent().attr('id');
     var userInput = $(this).siblings('.description').val();
@@ -13,6 +13,7 @@ $(function() {
   $('.time-block').each(function() {
     var hour = parseInt($(this).attr('id').split('-')[1]);
 
+// displays if the time past present or futrue. 
     if (hour < currentHour) {
       $(this).removeClass('present future').addClass('past');
     } else if (hour === currentHour) {
@@ -22,14 +23,14 @@ $(function() {
     }
   });
 
-  // Retrieve user input from local storage
+  // Local storage for whatever the user inputs
   $('.time-block').each(function() {
     var timeBlockId = $(this).attr('id');
     var userInput = localStorage.getItem(timeBlockId);
     $(this).find('.description').val(userInput);
   });
 
-  // Display the current date in the header
+  // This is for the header date and time at the top of the page.
   var currentDate = dayjs().format('dddd, MMMM D, YYYY');
   $('#currentDay').text(currentDate);
 });

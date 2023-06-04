@@ -31,12 +31,15 @@ textarea {
 }
 
 .past {
-  background-color: #FF7276;
+   /* Changed the background color to grey  */
+   background-color: #CCCCCC; 
   color: white;
 }
 
+
 .present {
-  background-color: #ff6961;
+  /* background-color to red */
+  background-color: #FF7276;
   color: white;
 }
 
